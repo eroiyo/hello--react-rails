@@ -1,15 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
-import logger from 'redux-logger';
-import greeting from './greeting/greetings';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import salute from './salute';
 
-const reducer = combineReducers({,
-  greetingReducer
+const reducer = combineReducers({
+  salute
 });
 
-const store = configureStore({
+const store = createStore(
   reducer,
-  middleware: [logger],
-});
-
+  applyMiddleware(thunk),
+);
 export default store;

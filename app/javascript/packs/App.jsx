@@ -4,16 +4,21 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import { Provider } from 'react-redux';
+import store from '../redux/configurestore';
 import Hello from '../components/Hello'
 
 document.addEventListener('DOMContentLoaded', () => {
 
 
   ReactDOM.render(
+    <React.StrictMode>
+    <Provider store={store}>
     <div className = "all">
     <Hello/>
-    </div>,
+    </div>
+    </Provider>
+    </React.StrictMode>,
     document.body.appendChild(document.createElement('div')),
   )
 })
